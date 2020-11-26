@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Item List</title>
-</head>
-<body>
+{% extends "templates/base.html "%}
+
+{% block content %}
 	{{title}}<br>
 	{% for instance in queryset %}
 	{{instance.item_name}}, {{instance.quantity}}<br>
-
 	{% endfor %}
-	
+{% endblock content %}
 
-</body>
-</html>
