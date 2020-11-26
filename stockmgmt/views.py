@@ -9,7 +9,7 @@ def home(request):
 	context = {
 	    "title": title,
 	}
-	return render(request, "home.html",context)
+	return render(request, "stockmgmt/home.html",context)
 
 
 def list_item(request):
@@ -19,7 +19,7 @@ def list_item(request):
 		"title": title,
 		"queryset": queryset,
 	}
-	return render(request, "list_item.html", context)
+	return render(request, "stockmgmt/list_item.html", context)
 
 
 def add_items(request):
@@ -31,5 +31,5 @@ def add_items(request):
             "form": form,
             "title": "Add Item",
         }
-        return render(request, "add_items.html", context)
+        return render(request, "stockmgmt/add_items.html", context)
 
