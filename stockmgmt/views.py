@@ -53,11 +53,11 @@ def update_items(request, pk):
         form = StockUpdateForm(request.POST, instance=queryset)
         if form.is_valid:
             form.save()
-            return redirect('/list_item.html')
+            return redirect('/list_item')
     context = {
         "form":form
     }
-    return render(request, "add_items.html", context)
+    return render(request, "stockmgmt/add_items.html", context)
 
         
 
