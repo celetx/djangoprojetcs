@@ -2,31 +2,32 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="header">{{header}}</div><!--This header picks its value fron views.py header variable-->
-	<form method='POST' action=''>{% csrf_token %}
-		{{form|crispy}}
-		<input type="submit" value='Search'/>
-	</form>
+<div class="header">{{header}}</div>
+<!--This header picks its value fron views.py header variable-->
+<form method='POST' action=''>{% csrf_token %}
+	{{form|crispy}}
+	<input type="submit" value='Search' />
+</form>
 <br>
 <div class="display_table">
 	<table class='table'>
 		<thead>
-		<tr>
-			<th>COUNT</th>
-			<th>CATEGORY</th>
-			<th>ITEM NAME</th>
-			<th>QUANTITY IN STORE</th>
-		</tr>
+			<tr>
+				<th>COUNT</th>
+				<th>CATEGORY</th>
+				<th>ITEM NAME</th>
+				<th>QUANTITY IN STORE</th>
+			</tr>
 		</thead>
-	{% for instance in queryset %}
+		{% for instance in queryset %}
 		<tr>
 			<td>{{forloop.counter}}</td>
 			<td>{{instance.category}}</td>
-			<td>{{instance.item_name}}</td>
+			<td><a href="{% url 'update_items' instance.id %}"></a></td>
 			<td>{{instance.quantity}}</td>
 		</tr>
-	{% endfor %}
+		{% endfor %}
 	</table>
-</div><!--End of display Table-->
+</div>
+<!--End of display Table-->
 {% endblock content %}
-
